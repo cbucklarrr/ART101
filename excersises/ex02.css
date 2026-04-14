@@ -11,3 +11,7 @@ html { font-family: Sans-serif; background-color: pink; }
 .highlight_02 {background-color: orange;}
 
 .highlight_03 {background-color: rgb(238, 255, 161);}
+
+#pink-huge { width: 150px}
+#pink-medium { width: 99px}
+#pink-small { width: 50px}
