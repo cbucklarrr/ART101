@@ -1,0 +1,23 @@
+p {color : blue; font-size: large; }
+
+li {text-align: center; }
+
+html {font-family: serif;}
+
+body {background-color: pink;}
+p { color : blue; font-size: large; }
+
+li { text-align: center; }
+
+html { font-family: Sans-serif; background-color: pink; }
+
+
+/* select all html tags that have a class highlight_01 */
+.highlight_01 {background-color:azure;}
+
+.highlight_02 {background-color: orange;}
+
+.highlight_03 {background-color: rgb(238, 255, 161);}
+#pink-huge { width: 150px}
+#pink-medium { width: 99px}
+#pink-small { width: 50px}
