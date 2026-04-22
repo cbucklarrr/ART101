@@ -1,0 +1,75 @@
+body {
+    background-color: #020c1a;
+    color: #a0d8ef;
+    font-family: Georgia, serif;
+    font-size: 1.1em;
+    margin: 0;
+    padding: 20px 40px;
+}
+p {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    line-height: 1.8;
+    font-style: italic;
+    color: #7ec8e3;
+}
+#top-zone {
+    background-color: #031628;
+    min-height: 150px;
+    position: relative;
+    border-bottom: 2px solid #0a3a5c;
+    overflow: hidden;
+}
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(100, 200, 255, 0.15);
+    border: 1px solid rgba(100, 200, 255, 0.3);
+}
+.bubble:nth-child(1) { width: 20px; height: 20px; left: 15%; top: 30px; }
+.bubble:nth-child(2) { width: 12px; height: 12px; left: 45%; top: 80px; }
+.bubble:nth-child(3) { width: 30px; height: 30px; left: 75%; top: 50px; }
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(180, 230, 255, 0.4);
+}
+
+.particle:nth-child(4) { left: 30%; top: 60px; }
+.particle:nth-child(5) { left: 60%; top: 100px; }
+#main-zone {
+    background-color: #010a14;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding: 40px;
+    overflow: visible;
+}
+#surface-light {
+    width: 300px;
+    opacity: 0.7;
+}
+
+#anglerfish {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    filter: brightness(0.85) saturate(0.8);
+}
+
+#jellyfish {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    filter: brightness(0.8) hue-rotate(200deg);
+}
+
+#rock {
+    width: 300px;
+    height: auto;
+    filter: brightness(0.8) saturate(0.4);
+}
