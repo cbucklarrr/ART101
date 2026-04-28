@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 20px 40px;
 }
+
 p {
     max-width: 700px;
     margin: 0 auto 30px auto;
@@ -13,6 +14,7 @@ p {
     font-style: italic;
     color: #7ec8e3;
 }
+
 #top-zone {
     background-color: #031628;
     min-height: 150px;
@@ -20,15 +22,18 @@ p {
     border-bottom: 2px solid #0a3a5c;
     overflow: hidden;
 }
+
 .bubble {
     position: absolute;
     border-radius: 50%;
     background: rgba(100, 200, 255, 0.15);
     border: 1px solid rgba(100, 200, 255, 0.3);
 }
+
 .bubble:nth-child(1) { width: 20px; height: 20px; left: 15%; top: 30px; }
 .bubble:nth-child(2) { width: 12px; height: 12px; left: 45%; top: 80px; }
 .bubble:nth-child(3) { width: 30px; height: 30px; left: 75%; top: 50px; }
+
 .particle {
     position: absolute;
     width: 4px;
@@ -39,6 +44,7 @@ p {
 
 .particle:nth-child(4) { left: 30%; top: 60px; }
 .particle:nth-child(5) { left: 60%; top: 100px; }
+
 #main-zone {
     background-color: #010a14;
     min-height: 500px;
@@ -49,6 +55,7 @@ p {
     padding: 40px;
     overflow: visible;
 }
+
 #surface-light {
     width: 300px;
     opacity: 0.7;
@@ -72,4 +79,69 @@ p {
     width: 300px;
     height: auto;
     filter: brightness(0.8) saturate(0.4);
+}
+
+#button-zone {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    padding: 30px 40px 10px 40px;
+}
+
+#button-zone button {
+    background-color: transparent;
+    color: #7ec8e3;
+    border: 1px solid #0a3a5c;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 0.95em;
+    padding: 10px 20px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#button-zone button:hover {
+    background-color: #0a3a5c;
+    color: #a0d8ef;
+    border-color: #7ec8e3;
+}
+
+#environment-output {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px 30px;
+    min-height: 60px;
+    border-left: 2px solid #0a3a5c;
+    color: #7ec8e3;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 1em;
+    line-height: 1.8;
+}
+
+#environment-output p {
+    margin: 0 0 10px 0;
+}
+
+#environment-output ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+#environment-output li {
+    margin-bottom: 6px;
+    list-style: none;
+    color: #7ec8e3;
+}
+
+#environment-output li::before {
+    content: "— ";
+    color: #0a3a5c;
+}
+
+#environment-output strong {
+    color: #a0d8ef;
+    font-style: normal;
 }
