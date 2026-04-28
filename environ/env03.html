@@ -8,27 +8,45 @@
     <script src="env03.js" defer></script>
 </head>
 <body>
+   
+    <div id="top-zone">
+        <p id="intro">Far beneath the surface, where sunlight is limited,
+            there is a world that has never known the sound of humans.
+            Cold, in the dark depths, things glow. Things breathe. Things watch.
+            You are descending now. The water closes above you like a door.
+        </p>
+        <div id="particles">
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+        </div>
+    </div>
 
-<p id="intro-text">Far beneath the surface, where sunlight is limited,
-    there is a world that has never known the sound of humans. Cold, in the dark depths, things glow. Things breathe. Things watch. You are descending now.
-    The water closes above you like a door.</p>
+    <div id="main-zone">
+        <img id="anglerfish"
+             src="https://www.montereybayaquarium.org/globalassets/mba/images/animals/fishes/deep-sea-anglerfish.jpg?width=608&height=404&mode=crop&format=jpeg&quality=60"
+             alt="Deep sea anglerfish with glowing lure">
+        <img id="jellyfish"
+             src="https://images.stockcake.com/public/4/7/a/47a33dab-9e93-4f2b-8fd3-7e628262ec48_large/glowing-ocean-jellyfish-stockcake.jpg"
+             alt="Glowing jellyfish drifting in the deep">
+        <img id="coral"
+             src="https://oceanexplorer.noaa.gov/wp-content/uploads/2024/01/lophelia-hires.jpg"
+             alt="Deep sea coral formation">
+    </div>
 
-<div id="top-zone">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <img id="surface-light" src="https://static.vecteezy.com/system/resources/thumbnails/071/078/376/small/bright-light-rays-shine-from-above-in-dark-space-photo.jpg" alt="faint light from above">
-</div>
+    <div id="button-zone">
+        <button id="btn-depth">How deep am I?</button>
+        <button id="btn-creatures">What lives here?</button>
+        <button id="btn-anglerfish">Tell me about the anglerfish</button>
+        <button id="btn-warning">Any dangers?</button>
+    </div>
 
-<div id="button-zone">
-    <button id="btn-depth">How deep am I?</button>
-    <button id="btn-creatures">What lives here?</button>
-    <button id="btn-warning">Any dangers?</button>
-</div>
-
-<div id="environment-output"></div>
+    <div id="environment-output"></div>
 
 </body>
 </html>

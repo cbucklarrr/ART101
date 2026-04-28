@@ -4,10 +4,19 @@ body {
     font-family: Georgia, serif;
     font-size: 1.1em;
     margin: 0;
-    padding: 20px 40px;
+    padding: 0;
 }
 
-p {
+#top-zone {
+    background-color: #031628;
+    min-height: 200px;
+    position: relative;
+    border-bottom: 2px solid #0a3a5c;
+    overflow: hidden;
+    padding: 40px;
+}
+
+#intro {
     max-width: 700px;
     margin: 0 auto 30px auto;
     line-height: 1.8;
@@ -15,24 +24,10 @@ p {
     color: #7ec8e3;
 }
 
-#top-zone {
-    background-color: #031628;
-    min-height: 150px;
+#particles {
     position: relative;
-    border-bottom: 2px solid #0a3a5c;
-    overflow: hidden;
+    height: 60px;
 }
-
-.bubble {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(100, 200, 255, 0.15);
-    border: 1px solid rgba(100, 200, 255, 0.3);
-}
-
-.bubble:nth-child(1) { width: 20px; height: 20px; left: 15%; top: 30px; }
-.bubble:nth-child(2) { width: 12px; height: 12px; left: 45%; top: 80px; }
-.bubble:nth-child(3) { width: 30px; height: 30px; left: 75%; top: 50px; }
 
 .particle {
     position: absolute;
@@ -42,23 +37,23 @@ p {
     background: rgba(180, 230, 255, 0.4);
 }
 
-.particle:nth-child(4) { left: 30%; top: 60px; }
-.particle:nth-child(5) { left: 60%; top: 100px; }
+.particle:nth-child(1) { left: 10%; top: 10px; }
+.particle:nth-child(2) { left: 20%; top: 40px; }
+.particle:nth-child(3) { left: 35%; top: 20px; }
+.particle:nth-child(4) { left: 50%; top: 50px; }
+.particle:nth-child(5) { left: 60%; top: 15px; }
+.particle:nth-child(6) { left: 72%; top: 35px; }
+.particle:nth-child(7) { left: 83%; top: 55px; }
+.particle:nth-child(8) { left: 93%; top: 25px; }
 
 #main-zone {
     background-color: #010a14;
-    min-height: 500px;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 60px;
+    gap: 40px;
     padding: 40px;
-    overflow: visible;
-}
-
-#surface-light {
-    width: 300px;
-    opacity: 0.7;
 }
 
 #anglerfish {
@@ -75,10 +70,11 @@ p {
     filter: brightness(0.8) hue-rotate(200deg);
 }
 
-#rock {
+#coral {
     width: 300px;
     height: auto;
-    filter: brightness(0.8) saturate(0.4);
+    border-radius: 8px;
+    filter: brightness(0.7) saturate(0.5);
 }
 
 #button-zone {
