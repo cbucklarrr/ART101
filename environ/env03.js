@@ -1,4 +1,3 @@
-// --- DATA LAYER ---
 
 let environmentTitle = "The Deep Sea";
 
@@ -32,7 +31,7 @@ let warnings = [
 let descentCount = 0;
 
 
-// --- BUTTON: depth ---
+
 $("#btn-depth").click(function () {
     descentCount = descentCount + 1;
 
@@ -50,7 +49,7 @@ $("#btn-depth").click(function () {
 });
 
 
-// --- BUTTON: creatures ---
+
 $("#btn-creatures").click(function () {
     let list = "<p>Known inhabitants of this zone:</p><ul>";
     for (let i = 0; i < creatures.length; i++) {
@@ -61,7 +60,7 @@ $("#btn-creatures").click(function () {
 });
 
 
-// --- BUTTON: anglerfish ---
+
 $("#btn-anglerfish").click(function () {
     let info = "<p><strong>Scientific name:</strong> " + anglerfish.name + "</p>";
     info = info + "<p><strong>Common name:</strong> " + anglerfish.commonName + "</p>";
@@ -73,7 +72,7 @@ $("#btn-anglerfish").click(function () {
 });
 
 
-// --- BUTTON: warning ---
+
 $("#btn-warning").click(function () {
     let randomIndex = Math.floor(Math.random() * warnings.length);
     let currentWarning = warnings[randomIndex];
