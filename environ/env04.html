@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Environment 04</title>
+    <link href="env04.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="env04.js" defer></script>
+</head>
+<body>
+
+    <div id="top-zone">
+        <p id="intro">Far beneath the surface, where sunlight is limited,
+            there is a world that has never known the sound of humans.
+            Cold, in the dark depths, things glow. Things breathe. Things watch.
+            You are descending now. The water closes above you like a door.
+        </p>
+        <div id="particles">
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+        </div>
+    </div>
+
+    <div id="main-zone">
+        <img id="anglerfish"
+             src="https://www.montereybayaquarium.org/globalassets/mba/images/animals/fishes/deep-sea-anglerfish.jpg?width=608&height=404&mode=crop&format=jpeg&quality=60"
+             alt="Deep sea anglerfish with glowing lure">
+        <img id="jellyfish"
+             src="https://images.stockcake.com/public/4/7/a/47a33dab-9e93-4f2b-8fd3-7e628262ec48_large/glowing-ocean-jellyfish-stockcake.jpg"
+             alt="Glowing jellyfish drifting in the deep">
+        <img id="coral"
+             src="https://oceanexplorer.noaa.gov/wp-content/uploads/2024/01/lophelia-hires.jpg"
+             alt="Deep sea coral formation">
+    </div>
+
+    <div id="tune-zone">
+        <p id="tune-label">Tune the environment:</p>
+        <div id="tune-buttons">
+            <button class="tune-btn" onclick="tuneEnvironment('surface')">⬆ Surface</button>
+            <button class="tune-btn" onclick="tuneEnvironment('shallow')">〜 Shallow</button>
+            <button class="tune-btn" onclick="tuneEnvironment('deep')">▼ Deep</button>
+            <button class="tune-btn" onclick="tuneEnvironment('abyss')">◈ Abyss</button>
+        </div>
+        <p id="depth-status">Current zone: <span id="zone-name">unknown</span></p>
+    </div>
+
+    <div id="button-zone">
+        <button id="btn-depth">How deep am I?</button>
+        <button id="btn-creatures">What lives here?</button>
+        <button id="btn-anglerfish">Tell me about the anglerfish</button>
+        <button id="btn-warning">Any dangers?</button>
+    </div>
+
+    <div id="environment-output"></div>
+
+</body>
+</html>
