@@ -1,12 +1,3 @@
-// =============================================
-//  ENV05 — THE ABYSS WAKES
-//  jQuery-driven interactions
-// =============================================
-
-
-// ---- Data ----
-
-// Messages that appear when the user presses a key (random transmission)
 let transmissions = [
     "Signal detected at 3,800m. Origin: unknown. Duration: 0.3 seconds. It did not repeat.",
     "The anglerfish has been alive for forty years. It has never seen another of its kind.",
