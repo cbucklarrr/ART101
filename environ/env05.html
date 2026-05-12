@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Environment 05 — The Abyss Wakes</title>
+    <link href="env05.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="env05.js" defer></script>
+</head>
+<body>
+
+    <!-- Custom cursor that follows the mouse -->
+    <div id="cursor"></div>
+    <div id="cursor-trail"></div>
+
+    <!-- Top section: title and sonar ping -->
+    <div id="top-zone">
+        <div id="sonar-ring"></div>
+
+        <h1 id="title">THE ABYSS</h1>
+        <p id="subtitle">hover. click. descend.</p>
+
+        <p id="intro">
+            Far beneath the surface, where sunlight cannot reach,
+            something is listening. Move carefully.
+            The creatures here have never seen light — only pressure,
+            and the faint electrical signals of living things.
+            <span id="warning-text"></span>
+        </p>
+    </div>
+
+    <!-- Creature zone: hoverable, clickable creatures -->
+    <div id="creature-zone">
+
+        <!-- Anglerfish: click to wake it, hover to disturb it -->
+        <div id="anglerfish-container" class="creature-card">
+            <img id="anglerfish"
+                 src="https://www.montereybayaquarium.org/globalassets/mba/images/animals/fishes/deep-sea-anglerfish.jpg?width=608&height=404&mode=crop&format=jpeg&quality=60"
+                 alt="Deep sea anglerfish">
+            <div class="creature-label">Melanocetus johnsonii</div>
+            <div class="creature-speech" id="angler-speech">I see you.</div>
+        </div>
+
+        <!-- Jellyfish: double-click to make it pulse -->
+        <div id="jellyfish-container" class="creature-card">
+            <img id="jellyfish"
+                 src="https://images.stockcake.com/public/4/7/a/47a33dab-9e93-4f2b-8fd3-7e628262ec48_large/glowing-ocean-jellyfish-stockcake.jpg"
+                 alt="Bioluminescent jellyfish">
+            <div class="creature-label">Atolla wyvillei</div>
+            <div class="creature-speech" id="jelly-speech">Touch me again.</div>
+        </div>
+
+        <!-- Coral: mousedown/mouseup to disturb the reef -->
+        <div id="coral-container" class="creature-card">
+            <img id="coral"
+                 src="https://oceanexplorer.noaa.gov/wp-content/uploads/2024/01/lophelia-hires.jpg"
+                 alt="Deep sea coral">
+            <div class="creature-label">Lophelia pertusa</div>
+            <div class="creature-speech" id="coral-speech">A thousand years. Disturbed.</div>
+        </div>
+
+    </div>
+
+    <!-- Depth gauge: moves with mouse position -->
+    <div id="depth-zone">
+        <div id="depth-gauge">
+            <div id="gauge-label">DEPTH</div>
+            <div id="gauge-bar-bg">
+                <div id="gauge-bar"></div>
+            </div>
+            <div id="gauge-reading">0 m</div>
+        </div>
+
+        <div id="pressure-meter">
+            <span id="pressure-label">PRESSURE</span>
+            <span id="pressure-reading">1 atm</span>
+        </div>
+    </div>
+
+    <!-- Hidden message zone: revealed by keypress -->
+    <div id="message-zone">
+        <p id="key-prompt">[ press any key to receive transmission ]</p>
+        <div id="transmission" class="hidden">
+            <p id="transmission-text"></p>
+        </div>
+    </div>
+
+    <!-- Bottom: darkness toggle -->
+    <div id="bottom-zone">
+        <button id="btn-lights">KILL THE LIGHTS</button>
+        <p id="lights-note">The bioluminescence remains.</p>
+    </div>
+
+</body>
+</html>

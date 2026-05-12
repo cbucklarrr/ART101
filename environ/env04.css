@@ -1,46 +1,71 @@
+/* Sets the overall page background to a very dark navy blue */
 body {
     background-color: #020c1a;
+    /* Sets the default text color to a light blue */
     color: #a0d8ef;
+    /* Sets the font to Georgia for the whole page */
     font-family: Georgia, serif;
+    /* Makes the text slightly larger than the default */
     font-size: 1.1em;
+    /* Removes default spacing around the edges */
     margin: 0;
     padding: 0;
+    /* Smoothly fades the background color when it changes */
     transition: background-color 1.2s ease;
 }
 
+/* Styles the top section of the page */
 #top-zone {
     background-color: #031628;
+    /* Makes sure the section is at least 200px tall */
     min-height: 200px;
+    /* Allows child elements to be positioned inside it */
     position: relative;
+    /* Adds a dark blue line at the bottom of this section */
     border-bottom: 2px solid #0a3a5c;
+    /* Hides anything that goes outside the edges */
     overflow: hidden;
+    /* Adds space inside the section on all sides */
     padding: 40px;
+    /* Smoothly fades the background and border color when they change */
     transition: background-color 1.2s ease, border-color 1s ease;
 }
 
+/* Styles the intro paragraph text */
 #intro {
+    /* Limits the width and centers it on the page */
     max-width: 700px;
     margin: 0 auto 30px auto;
+    /* Adds space between each line of text */
     line-height: 1.8;
+    /* Makes the text italic */
     font-style: italic;
     color: #7ec8e3;
+    /* Smoothly fades the color when it changes */
     transition: color 1s ease;
 }
 
+/* Styles the container that holds the floating particles */
 #particles {
     position: relative;
     height: 60px;
 }
 
+/* Styles each individual particle dot */
 .particle {
+    /* Positions each particle freely inside its container */
     position: absolute;
+    /* Makes each particle 4x4 pixels */
     width: 4px;
     height: 4px;
+    /* Makes the particle a circle */
     border-radius: 50%;
+    /* Sets the color to a soft, slightly transparent light blue */
     background: rgba(180, 230, 255, 0.4);
     transition: background 1s ease;
 }
 
+/* Sets the exact position of each particle across the screen */
 .particle:nth-child(1) { left: 10%; top: 10px; }
 .particle:nth-child(2) { left: 20%; top: 40px; }
 .particle:nth-child(3) { left: 35%; top: 20px; }
@@ -50,43 +75,55 @@ body {
 .particle:nth-child(7) { left: 83%; top: 55px; }
 .particle:nth-child(8) { left: 93%; top: 25px; }
 
+/* Styles the middle section that holds the creature images */
 #main-zone {
     background-color: #010a14;
     min-height: 400px;
+    /* Lines the images up in a row and centers them */
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Adds space between each image */
     gap: 40px;
     padding: 40px;
     transition: background-color 1.2s ease;
 }
 
+/* Styles the anglerfish image */
 #anglerfish {
     width: 300px;
     height: auto;
+    /* Slightly rounds the corners */
     border-radius: 8px;
+    /* Dims and desaturates the image slightly */
     filter: brightness(0.85) saturate(0.8);
     transition: filter 1.2s ease, opacity 1s ease;
 }
 
+/* Styles the jellyfish image */
 #jellyfish {
     width: 300px;
     height: auto;
     border-radius: 8px;
+    /* Dims the image and shifts its color toward blue */
     filter: brightness(0.8) hue-rotate(200deg);
     transition: filter 1.2s ease, opacity 1s ease;
 }
 
+/* Styles the coral image */
 #coral {
     width: 300px;
     height: auto;
     border-radius: 8px;
+    /* Makes the image darker and more washed out */
     filter: brightness(0.7) saturate(0.5);
     transition: filter 1.2s ease, opacity 1s ease;
 }
 
+/* Styles the zone tuning section */
 #tune-zone {
     background-color: #020e1c;
+    /* Adds thin blue lines above and below this section */
     border-top: 1px solid #0a3a5c;
     border-bottom: 1px solid #0a3a5c;
     padding: 24px 40px;
@@ -94,23 +131,30 @@ body {
     transition: background-color 1.2s ease;
 }
 
+/* Styles the small label above the tune buttons */
 #tune-label {
     font-size: 0.85em;
+    /* Adds spacing between each letter */
     letter-spacing: 0.12em;
+    /* Makes the text all caps */
     text-transform: uppercase;
     color: #3a6a80;
     margin: 0 0 14px 0;
 }
 
+/* Styles the row of tune buttons */
 #tune-buttons {
     display: flex;
     gap: 12px;
     justify-content: center;
+    /* Lets buttons wrap to the next line on small screens */
     flex-wrap: wrap;
     margin-bottom: 16px;
 }
 
+/* Styles each individual tune button */
 .tune-btn {
+    /* Makes the background see-through */
     background-color: transparent;
     color: #4a9ab5;
     border: 1px solid #0d3a54;
@@ -118,23 +162,28 @@ body {
     font-style: italic;
     font-size: 0.9em;
     padding: 8px 18px;
+    /* Changes cursor to a pointer when hovering */
     cursor: pointer;
     letter-spacing: 0.08em;
+    /* Smoothly changes color and background on hover */
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
+/* Changes the button appearance when the mouse hovers over it */
 .tune-btn:hover {
     background-color: #0a3a5c;
     color: #a0d8ef;
     border-color: #7ec8e3;
 }
 
+/* Styles the button that is currently selected/active */
 .tune-btn.active {
     background-color: #0a3a5c;
     color: #d0f0ff;
     border-color: #7ec8e3;
 }
 
+/* Styles the text that shows the current depth zone */
 #depth-status {
     font-size: 0.85em;
     color: #3a6a80;
@@ -143,12 +192,14 @@ body {
     transition: color 0.8s ease;
 }
 
+/* Styles the zone name that appears inside the depth status text */
 #zone-name {
     color: #7ec8e3;
     font-style: italic;
     transition: color 0.8s ease;
 }
 
+/* Styles the row of info buttons at the bottom */
 #button-zone {
     display: flex;
     flex-wrap: wrap;
@@ -157,6 +208,7 @@ body {
     padding: 30px 40px 10px 40px;
 }
 
+/* Styles each info button */
 #button-zone button {
     background-color: transparent;
     color: #7ec8e3;
@@ -170,17 +222,21 @@ body {
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
+/* Changes the info button appearance when hovered */
 #button-zone button:hover {
     background-color: #0a3a5c;
     color: #a0d8ef;
     border-color: #7ec8e3;
 }
 
+/* Styles the output box where JavaScript displays text responses */
 #environment-output {
     max-width: 700px;
+    /* Centers the box on the page */
     margin: 20px auto;
     padding: 20px 30px;
     min-height: 60px;
+    /* Adds a blue line on the left side of the output box */
     border-left: 2px solid #0a3a5c;
     color: #7ec8e3;
     font-family: Georgia, serif;
@@ -190,27 +246,34 @@ body {
     transition: border-color 0.8s ease;
 }
 
+/* Adds spacing below each paragraph in the output box */
 #environment-output p {
     margin: 0 0 10px 0;
 }
 
+/* Styles any lists displayed in the output box */
 #environment-output ul {
     padding-left: 20px;
     margin: 0;
 }
 
+/* Styles each list item in the output box */
 #environment-output li {
     margin-bottom: 6px;
+    /* Removes the default bullet point */
     list-style: none;
     color: #7ec8e3;
 }
 
+/* Adds a custom dash before each list item instead of a bullet */
 #environment-output li::before {
     content: "— ";
     color: #0a3a5c;
 }
 
+/* Styles any bold text inside the output box */
 #environment-output strong {
     color: #a0d8ef;
+    /* Overrides the italic style for bold text */
     font-style: normal;
 }

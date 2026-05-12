@@ -1,21 +1,43 @@
+<!-- Tells the browser this is an HTML5 document -->
 <!doctype html>
+
+<!-- Starts the HTML page, sets language to English -->
 <html lang="en">
+
+<!-- Start of the head section — holds settings and links, not visible on page -->
 <head>
+    <!-- Tells the browser to use standard characters/symbols -->
     <meta charset="utf-8">
+
+    <!-- Sets the title shown on the browser tab -->
     <title>Environment 04</title>
+
+    <!-- Links the CSS file to style this page -->
     <link href="env04.css" rel="stylesheet" type="text/css">
+
+    <!-- Loads the jQuery library to make JavaScript easier to write -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Loads our JavaScript file, defer means it waits until the page loads first -->
     <script src="env04.js" defer></script>
 </head>
+
+<!-- Start of the body — everything visible on the page goes here -->
 <body>
 
+    <!-- Top section of the page, holds the intro text and floating particles -->
     <div id="top-zone">
+
+        <!-- Intro paragraph that sets the mood/scene -->
         <p id="intro">Far beneath the surface, where sunlight is limited,
             there is a world that has never known the sound of humans.
             Cold, in the dark depths, things glow. Things breathe. Things watch.
             You are descending now. The water closes above you like a door.
         </p>
+
+        <!-- Container that holds all the floating particle animations -->
         <div id="particles">
+            <!-- Each span is one floating particle on the screen -->
             <span class="particle"></span>
             <span class="particle"></span>
             <span class="particle"></span>
@@ -27,36 +49,66 @@
         </div>
     </div>
 
+    <!-- Middle section that displays the deep sea creature images -->
     <div id="main-zone">
+
+        <!-- Anglerfish image loaded from an outside website -->
         <img id="anglerfish"
              src="https://www.montereybayaquarium.org/globalassets/mba/images/animals/fishes/deep-sea-anglerfish.jpg?width=608&height=404&mode=crop&format=jpeg&quality=60"
              alt="Deep sea anglerfish with glowing lure">
+
+        <!-- Jellyfish image loaded from an outside website -->
         <img id="jellyfish"
              src="https://images.stockcake.com/public/4/7/a/47a33dab-9e93-4f2b-8fd3-7e628262ec48_large/glowing-ocean-jellyfish-stockcake.jpg"
              alt="Glowing jellyfish drifting in the deep">
+
+        <!-- Coral image loaded from an outside website -->
         <img id="coral"
              src="https://oceanexplorer.noaa.gov/wp-content/uploads/2024/01/lophelia-hires.jpg"
              alt="Deep sea coral formation">
     </div>
 
+    <!-- Section with buttons that let the user change the environment/zone -->
     <div id="tune-zone">
+
+        <!-- Label telling the user what these buttons do -->
         <p id="tune-label">Tune the environment:</p>
+
+        <!-- Group of buttons, each one calls the tuneEnvironment function with a different zone -->
         <div id="tune-buttons">
+            <!-- When clicked, switches the environment to Surface mode -->
             <button class="tune-btn" onclick="tuneEnvironment('surface')">⬆ Surface</button>
+
+            <!-- When clicked, switches the environment to Shallow mode -->
             <button class="tune-btn" onclick="tuneEnvironment('shallow')">〜 Shallow</button>
+
+            <!-- When clicked, switches the environment to Deep mode -->
             <button class="tune-btn" onclick="tuneEnvironment('deep')">▼ Deep</button>
+
+            <!-- When clicked, switches the environment to Abyss mode -->
             <button class="tune-btn" onclick="tuneEnvironment('abyss')">◈ Abyss</button>
         </div>
+
+        <!-- Shows the user which zone they are currently in -->
         <p id="depth-status">Current zone: <span id="zone-name">unknown</span></p>
     </div>
 
+    <!-- Section with buttons that trigger information about the deep sea -->
     <div id="button-zone">
+        <!-- Button that tells the user how deep they are -->
         <button id="btn-depth">How deep am I?</button>
+
+        <!-- Button that lists creatures living at this depth -->
         <button id="btn-creatures">What lives here?</button>
+
+        <!-- Button that gives facts about the anglerfish -->
         <button id="btn-anglerfish">Tell me about the anglerfish</button>
+
+        <!-- Button that warns the user about dangers at this depth -->
         <button id="btn-warning">Any dangers?</button>
     </div>
 
+    <!-- Empty box where JavaScript will display text output when buttons are clicked -->
     <div id="environment-output"></div>
 
 </body>
