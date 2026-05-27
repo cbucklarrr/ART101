@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic 8-Ball</title>
+  <style>
+
+    
+    body {
+      background-color: #0a0a14;
+      color: white;
+      font-family: Georgia, serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+ 
+    .screen {
+      display: none;
+      padding: 40px 20px;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    h1 {
+      color: #4f8ef7;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #aaaacc;
+      font-size: 1rem;
+    }
+
+    /*the 8-ball*/
+    .ball {
+      width: 220px;
+      height: 220px;
+      background-color: #111;
+      border-radius: 50%;
+      margin: 30px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 40px rgba(79, 142, 247, 0.4);
+    }
+
+    /*the blue circle inside the ball*/
+    .ball-window {
+      width: 100px;
+      height: 100px;
+      background-color: #1a1aff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ball-window span {
+      color: #c8e0ff;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    /*shaking animation*/
+    @keyframes shake {
+      0%   { transform: rotate(-10deg); }
+      50%  { transform: rotate(10deg); }
+      100% { transform: rotate(-10deg); }
+    }
+
+    .shaking {
+      animation: shake 0.3s infinite;
+    }
+
+    /*buttons*/
+    button {
+      background-color: #1a1a2e;
+      color: #4f8ef7;
+      border: 1.5px solid #4f8ef7;
+      border-radius: 30px;
+      padding: 12px 36px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    button:hover {
+      background-color: #2a2a4e;
+    }
+
+    /*the text input box*/
+    textarea {
+      width: 80%;
+      max-width: 400px;
+      background-color: #111;
+      color: white;
+      border: 1px solid #4f8ef7;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 1rem;
+      font-family: Georgia, serif;
+      resize: none;
+      display: block;
+      margin: 20px auto 0;
+    }
+
+    /*the answer text inside the ball on the answer screen*/
+    #answer-text {
+      color: #c8e0ff;
+      font-size: 0.75rem;
+      padding: 8px;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /*number of questions asked*/
+    #question-count {
+      color: #7878a0;
+      font-size: 0.85rem;
+      margin-top: 6px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <! Start page >
+  <div id="screen-start" class="screen active">
+    <div class="ball">
+      <div class="ball-window">
+        <span>8</span>
+      </div>
+    </div>
+    <h1>Magic 8-Ball</h1>
+    <p>Ask the ball anything. It knows all.</p>
+    <button onclick="showScreen('screen-question')">Ask a Question</button>
+  </div>
+
+
+  <! Question page >
+  <div id="screen-question" class="screen">
+    <h1>What is your question?</h1>
+    <p>Type below and shake the ball.</p>
+    <textarea id="user-question" rows="3" placeholder="Type your question here..."></textarea>
+    <button onclick="submitQuestion()">Shake the Ball</button>
+    <button onclick="showScreen('screen-start')" style="color:#7878a0; border-color:#7878a0; margin-top:10px;">Go Back</button>
+  </div>
+
+
+  <!shaking page>
+  <div id="screen-loading" class="screen">
+    <p>The ball is thinking...</p>
+    <div class="ball shaking">
+      <div class="ball-window">
+        <span>?</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!Answer page>
+  <div id="screen-answer" class="screen">
+    <p>The ball has spoken.</p>
+    <div class="ball">
+      <div class="ball-window">
+        <span id="answer-text"></span>
+      </div>
+    </div>
+    <p id="question-count"></p>
+    <div id="funny-message"></div>
+    <button onclick="showScreen('screen-question')">Ask Another</button>
+    <button onclick="showScreen('screen-start')" style="color:#7878a0; border-color:#7878a0; margin-top:10px;">Go Home</button>
+  </div>
+
+
+  <script>
+
+    // keeps track of how many questions have been asked
+    var questionCount = 0;
+
+    // responses the ball can give
+    var goodResponses = [
+      "It is certain",
+      "Without a doubt",
+      "Yes, definitely",
+      "Most likely",
+      "Signs point to yes",
+      "Outlook good",
+      "You may rely on it",
+      "As I see it, yes"
+    ];
+
+    var neutralResponses = [
+      "Ask again later",
+      "Cannot predict now",
+      "Reply hazy, try again",
+      "Better not tell you now"
+    ];
+
+    var badResponses = [
+      "Don't count on it",
+      "My reply is no",
+      "Very doubtful",
+      "Outlook not so good",
+      "My sources say no"
+    ];
+
+    // switches which screen is visible
+    function showScreen(screenId) {
+      var screens = document.querySelectorAll(".screen");
+      for (var i = 0; i < screens.length; i++) {
+        screens[i].classList.remove("active");
+      }
+      document.getElementById(screenId).classList.add("active");
+    }
+
+
+    // runs when the user clicks "Shake the Ball"
+    function submitQuestion() {
+      var question = document.getElementById("user-question").value;
+
+      // don't do anything if the box is empty
+      if (question.trim() === "") {
+        alert("Please type a question first!");
+        return;
+      }
+
+      questionCount = questionCount + 1;
+
+      // show the loading/shaking screen
+      showScreen("screen-loading");
+
+      // wait 1.8 seconds then show the answer
+      setTimeout(function() {
+        var answer = pickAnswer();
+        showAnswer(answer);
+      }, 1800);
+    }
+
+
+    // picks a random response based on some weighted odds
+    function pickAnswer() {
+
+      // after 5 questions, there's a 1 in 4 chance of a funny response
+      if (questionCount >= 5) {
+        var funnyRoll = Math.random();
+        if (funnyRoll < 0.25) {
+          var funnyIndex = Math.floor(Math.random() * funnyResponses.length);
+          return { text: funnyResponses[funnyIndex], type: "funny" };
+        }
+      }
+
+      // otherwise pick from the normal responses
+      // roughly 50% good, 25% neutral, 25% bad
+      var roll = Math.random();
+
+      if (roll < 0.50) {
+        var i = Math.floor(Math.random() * goodResponses.length);
+        return { text: goodResponses[i], type: "good" };
+      } else if (roll < 0.75) {
+        var j = Math.floor(Math.random() * neutralResponses.length);
+        return { text: neutralResponses[j], type: "neutral" };
+      } else {
+        var k = Math.floor(Math.random() * badResponses.length);
+        return { text: badResponses[k], type: "bad" };
+      }
+    }
+
+
+    // puts the answer on the screen
+    function showAnswer(answer) {
+      document.getElementById("answer-text").textContent = answer.text;
+
+      // update the question counter
+      document.getElementById("question-count").textContent = "Questions asked: " + questionCount;
+
+      // show the funny message box if it was a funny response
+      var funnyBox = document.getElementById("funny-message");
+      if (answer.type === "funny") {
+        funnyBox.style.display = "block";
+        funnyBox.textContent = "✨ The 8-ball is getting a little weird...";
+      } else {
+        funnyBox.style.display = "none";
+      }
+
+      // clear the question box for next time
+      document.getElementById("user-question").value = "";
+
+      showScreen("screen-answer");
+    }
+
+  </script>
+
+</body>
+</html>
