@@ -113,7 +113,7 @@
       margin: 20px auto 0;
     }
 
-    /*the answer text inside the ball on the answer screen*/
+    /*the answer text inside the ball*/
     #answer-text {
       color: #c8e0ff;
       font-size: 0.75rem;
@@ -184,7 +184,7 @@
 
   <script>
 
-    // keeps track of how many questions have been asked
+    // this keeps track of how many questions have been asked
     var questionCount = 0;
 
     // responses the ball can give
@@ -214,7 +214,7 @@
       "My sources say no"
     ];
 
-    // switches which screen is visible
+    // switches which screen you can see
     function showScreen(screenId) {
       var screens = document.querySelectorAll(".screen");
       for (var i = 0; i < screens.length; i++) {
@@ -224,7 +224,7 @@
     }
 
 
-    // runs when the user clicks "Shake the Ball"
+    // when user clicks "Shake the Ball"
     function submitQuestion() {
       var question = document.getElementById("user-question").value;
 
